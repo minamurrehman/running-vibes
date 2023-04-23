@@ -1,8 +1,6 @@
 import Image from 'next/image'
-import BannerImage from '@/app/assets/banner.jpg'
 import {FaFacebook, FaTwitter} from 'react-icons/fa'
 import Newsletter from '@/components/Newsletter'
-import prisma from "@/utils/prisma";
 import ShowText from '@/components/ShowText'
 import {createServerComponentSupabaseClient} from "@supabase/auth-helpers-nextjs";
 import {cookies, headers} from "next/headers";
