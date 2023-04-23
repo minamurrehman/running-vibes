@@ -24,15 +24,19 @@ export default function Write(){
     const [banner, setBanner] = useState(null)
     const [title, setTitle] = useState('')
     const [slug, setSlug] = useState('')
+    const [loading, setLoading] = useState(true)
     const [shortDesc, setShortDesc] = useState('')
 
     useEffect(() => {
 
         (async function () {
-
+            setLoading(true)
             const user = await supabase.auth.getUser()
             if (!user.data.user) {
                 router.replace('/login')
+            }
+            else{
+                setLoading(false)
             }
         })()
     }, [router])
@@ -91,7 +95,7 @@ export default function Write(){
     }
 
     return (
-        // loading ? <div>Loading....</div> :
+        loading ? <div>Loading....</div> :
             <form
                 onSubmit={(e) => handleSubmit(e)}
                 className='max-w-[1440px] mx-auto my-4 flex flex-col gap-4'
@@ -102,7 +106,7 @@ export default function Write(){
                         <input
                             className='block border w-full py-2 text-xl px-2 rounded-md my-2'
                             type='text'
-                            // required
+                            required
                             value={title}
                             onChange={(e) => {
                                 setTitle(e.target.value)
@@ -132,7 +136,7 @@ export default function Write(){
                         <input
                             className='block border w-full py-2 text-xl px-2 rounded-md my-2'
                             type='text'
-                            // required
+                            required
                             value={shortDesc}
                             onChange={(e) => {
                                 setShortDesc(e.target.value)
