@@ -1,0 +1,112 @@
+.customContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 10px;
+  min-height: 600px;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 10px 0 300px 0;
+  }
+  @media screen and (max-width: 650px) {
+    margin: 10px 0 250px 0;
+  }
+  @media screen and (max-width: 450px) {
+    margin: 10px 0 200px 0;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 600px;
+  @media screen and (max-width: 650px) {
+    max-width: 50vw;
+  }
+  @media screen and (max-width: 550px) {
+    width: 90vw;
+  }
+
+  .firstImage {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 20px;
+    justify-self: end;
+    align-self: flex-end;
+  }
+
+  .secondImage {
+    position: absolute;
+    right: 30%;
+    top: 35%;
+  }
+
+  .firstBlock {
+    width: 100px;
+    height: 80px;
+    background-color: #fab900;
+    position: absolute;
+    right: 5%;
+    bottom: 32%;
+    z-index: -1;
+    border-radius: 10px;
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
+  }
+
+  .secondBlock {
+    width: 100px;
+    height: 80px;
+    background-color: #fab900;
+    position: absolute;
+    left: 17%;
+    top: 29%;
+    z-index: -1;
+    border-radius: 10px;
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
+  }
+}
+.headingContainer {
+  @media screen and (max-width: 900px) {
+    max-width: 400px;
+    h1 {
+      font-size: 50px;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 775px) {
+    max-width: 400px;
+    h1 {
+      font-size: 50px;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 610px) {
+    h1 {
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+}
+.dec1,
+.dec2 {
+  @media screen and (max-width: 775px) {
+    width: 80px;
+  }
+  @media screen and (max-width: 610px) {
+    display: none;
+  }
+}
+.miniBlock {
+  @media screen and (max-width: 610px) {
+    display: none;
+  }
+}
