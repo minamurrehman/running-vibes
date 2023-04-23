@@ -8,10 +8,7 @@ import {useSupabase} from "@/app/supabase-provider";
 import {toast} from "react-toastify";
 
 
-
-
-
-export default function Home() {
+function Home() {
     const [form,setForm] = useState({
         fullName: '',
         email: 'student',
@@ -115,3 +112,4 @@ export default function Home() {
         </div>
     )
 }
+export default Home

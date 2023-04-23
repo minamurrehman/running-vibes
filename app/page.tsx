@@ -1,4 +1,3 @@
-
 import DualImage from '@/components/DualImage'
 
 import Exercise1 from './assets/exercise1.png'

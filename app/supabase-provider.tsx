@@ -1,14 +1,12 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { useRouter } from 'next/navigation'
-
-import type { SupabaseClient } from '@supabase/auth-helpers-nextjs'
+import {createContext, useContext, useEffect, useState} from 'react'
+import type {SupabaseClient} from '@supabase/auth-helpers-nextjs'
+import {createBrowserSupabaseClient} from '@supabase/auth-helpers-nextjs'
+import {useRouter} from 'next/navigation'
 //@ts-ignore
-import type { Database } from '@/lib/database.types'
-import store from "@/app/store/store";
-import {Provider} from "react-redux";
+import type {Database} from '@/lib/database.types'
+
 
 type SupabaseContext = {
     supabase: SupabaseClient<Database>
@@ -33,13 +31,11 @@ export default function SupabaseProvider({ children }: { children: React.ReactNo
     }, [router, supabase])
 
     return (
-        <Provider store={store}>
         <Context.Provider value={{ supabase }}>
 
             <>{children}</>
 
         </Context.Provider>
-        </Provider>
     )
 }
 

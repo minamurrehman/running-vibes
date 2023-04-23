@@ -5,6 +5,7 @@ import DualImage2 from '@/components/DualImage2'
 import Puropse1 from '@/app/assets/purpose1.png'
 import Puropse2 from '@/app/assets/purpose2.png'
 import Link from 'next/link'
+
 const Home = () => {
   return (
     <div>

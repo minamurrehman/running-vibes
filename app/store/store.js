@@ -1,8 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit'
-import userSlice from "./userSlice";
+import {create} from 'zustand'
+import {persist} from 'zustand/middleware'
 
-export default configureStore({
-    reducer: {
-        userValue: userSlice
-    },
-})
+const useUserStore = create(
+    persist(
+        (set,get) =>({
+            user: {},
+            loginUser: (data) =>set({user: data}),
+            logoutUser: () => set({user: {}})
+        }),{
+            name: "user",
+        }
+    )
+)
+
+export default useUserStore

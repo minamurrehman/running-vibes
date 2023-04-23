@@ -1,8 +1,13 @@
 'use client'
 import {EditorState, convertToRaw} from 'draft-js'
-import {FormEvent, useEffect, useState} from 'react'
+import { useEffect, useState} from 'react'
 import draftToHtml from 'draftjs-to-html';
-import {Editor} from 'react-draft-wysiwyg'
+import dynamic from "next/dynamic";
+// import {Editor} from 'react-draft-wysiwyg'
+const Editor = dynamic(()=>import('react-draft-wysiwyg').then((mod)=>mod.Editor),{
+    loading: ()=><p>Loading....</p>,
+    ssr: false
+})
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 import {toast} from "react-toastify";
@@ -10,7 +15,7 @@ import {useSupabase} from "@/app/supabase-provider";
 import {useRouter} from "next/navigation";
 import slugify from "slugify";
 
-const Write = () => {
+export default function Write(){
     const {supabase} = useSupabase()
     const router = useRouter()
     const [editorState, setEditorState] = useState(() =>
@@ -62,10 +67,10 @@ const Write = () => {
         setBanner(url.data.link)
     }
 
-    const handleSubmit = async (e: FormEvent) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
 
-        const {data,error}  = await supabase.from('articles').insert([
+        const {error}  = await supabase.from('articles').insert([
             {
                 title: title,
                 slug: slugify(slug,{
@@ -89,7 +94,7 @@ const Write = () => {
     }
 
     return (
-        loading ? <div>Loading....</div> :
+        // loading ? <div>Loading....</div> :
             <form
                 onSubmit={(e) => handleSubmit(e)}
                 className='max-w-[1440px] mx-auto my-4 flex flex-col gap-4'
@@ -199,4 +204,4 @@ const Write = () => {
     )
 }
 
-export default Write
+

@@ -2,14 +2,10 @@
 import Link from "next/link";
 import {Bars3Icon, EllipsisVerticalIcon} from '@heroicons/react/24/outline'
 import {usePathname, useRouter} from "next/navigation";
-import {useEffect, useState} from "react";
-
 import {toast, ToastContainer} from "react-toastify";
 import {useSupabase} from "@/app/supabase-provider";
-import {useDispatch, useSelector} from "react-redux";
-import {logoutUser} from "@/app/store/userSlice";
+import useUserStore from "@/app/store/store";
 
-import {user} from "@/app/store/userSlice"
 
 const links = [
     {
@@ -44,9 +40,8 @@ const links = [
 const Nav =  () => {
     const pathname = usePathname()
     const { supabase } = useSupabase()
-    const dispatch = useDispatch()
-    // @ts-ignore
-    const currentUser = useSelector(user)
+    const currentUser = useUserStore((state)=>state.user)
+    const logoutUser = useUserStore((state)=>state.logoutUser)
     const router = useRouter()
 
 
@@ -61,7 +56,7 @@ const Nav =  () => {
             toast('Logout successfully',{
                 type: 'success'
             })
-            dispatch(logoutUser())
+            logoutUser()
             router.replace('/login')
         }
     }
@@ -99,7 +94,7 @@ const Nav =  () => {
                             currentUser?.id && (
                                 <Link
                                     href='/write'
-                                    className={`${pathname==='/write'?'text-primary font-semibold':'text-text' +
+                                    className={`${pathname==='/writeBlog'?'text-primary font-semibold':'text-text' +
                                         ' font-[400]'} `}>
                                     Write Article
                                 </Link>

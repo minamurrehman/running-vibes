@@ -1,14 +1,13 @@
-
 import TopCard from '@/components/TopCard'
 import NewsCard from '@/components/NewsCard'
 import Link from 'next/link'
 import Newsletter from '@/components/Newsletter'
 import {createServerComponentSupabaseClient} from "@supabase/auth-helpers-nextjs";
-import { headers, cookies } from 'next/headers'
+import {cookies, headers} from 'next/headers'
 
 export const revalidate = 0
 
-export default async function Home() {
+async function Home() {
 
   const supabase = createServerComponentSupabaseClient({
     headers,
@@ -118,3 +117,4 @@ export default async function Home() {
     </main>
   )
 }
+export default Home

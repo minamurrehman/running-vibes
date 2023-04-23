@@ -6,35 +6,13 @@ import {createServerComponentSupabaseClient} from "@supabase/auth-helpers-nextjs
 import {cookies, headers} from "next/headers";
 
 
-
-const NewsInfo = async ({params}: any) => {
+export default async function NewsInfo ({params}:any){
     const supabase = createServerComponentSupabaseClient({
         headers,
         cookies,
     })
     const {data, error} = await supabase.from('articles').select('*').eq('slug', params.slug)
 
-
-    const info = [
-        {
-            meta: [
-                {
-                    name: 'Published At',
-                    info: '03-04-23, 06:00',
-                },
-                {
-                    name: 'Updated At',
-                    info: '03-04-23, 06:00',
-                },
-                {
-                    name: 'Source',
-                    info: 'Inam',
-                },
-            ],
-        },
-    ]
-    // @ts-ignore
-    // @ts-ignore
     return (
         <div>
             <div className='bg-primary-bg'>
@@ -96,5 +74,3 @@ const NewsInfo = async ({params}: any) => {
         </div>
     )
 }
-
-export default NewsInfo

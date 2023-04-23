@@ -6,14 +6,12 @@ import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {toast} from "react-toastify";
 import {useSupabase} from "@/app/supabase-provider";
-import {useDispatch} from "react-redux";
-import {loginUser} from '../store/userSlice'
+import useUserStore from "@/app/store/store"
 
 
-
-export default function Home() {
+const Home = () =>{
     const { supabase } = useSupabase()
-    const dispatch = useDispatch()
+    const loginUser = useUserStore((state:any)=>state.loginUser)
     const [form,setForm] = useState({
         email: 'inaamurrehman343@gmail.com',
         password: 'anam2292000'
@@ -39,7 +37,7 @@ export default function Home() {
                 type: 'success'
             })
             console.log(data.user)
-            dispatch(loginUser(data.user))
+            loginUser(data.user)
             router.replace('/')
         }
 
@@ -104,3 +102,4 @@ export default function Home() {
         </div>
     )
 }
+export default Home
