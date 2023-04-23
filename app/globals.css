@@ -5,3 +5,41 @@
 img{
     border-radius: 15px;
 }
+
+.customContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    row-gap: 20px;
+}
+
+.content{
+    flex-wrap: nowrap;
+}
+
+.imageContainer{
+    width: 70%;
+}
+
+@media screen and (max-width: 920px) {
+    .customContainer{
+        grid-template-columns: 1fr;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .imageContainer{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 620px) {
+    .customContainer{
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .imageContainer{
+        width: 100%;
+    }
+}

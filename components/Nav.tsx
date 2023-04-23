@@ -119,7 +119,7 @@ const Nav = () => {
                         <Link href="/lang" className="ml-4 xl:ml-6  text-primary font-[600]"
                               >DU/ENG</Link
                         >
-                        <div>
+                        <div className='mt-6 lg:mt-0'>
 
                             {
 

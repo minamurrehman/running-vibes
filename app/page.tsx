@@ -1,7 +1,6 @@
 import DualImage from '@/components/DualImage'
 
-import Exercise1 from './assets/exercise1.png'
-import Exercise2 from './assets/exercise2.png'
+import Exercise from '@/app/assets/img_2.png'
 import Link from 'next/link'
 import NewsCard from '@/components/NewsCard'
 import Newsletter from '@/components/Newsletter'
@@ -74,11 +73,11 @@ export default function Home() {
     <>
       <Hero />
       <main className='max-w-[1440px] mx-auto p-3'>
-        <DualImage imageA={Exercise2} imageB={Exercise1}>
-          <h1 className='text-[40px] font-[600] md:max-w-[400px]'>
+        <DualImage image={Exercise} direction='ltr'>
+          <h1 className='text-[30px] lg:text-[40px] font-[600] md:max-w-[400px]'>
             Work out at home for free
           </h1>
-          <p className='font-normal text-text md:max-w-[500px] mt-3'>
+          <p className='font-normal text-text lg:max-w-[500px] mt-3'>
             We believe fitness should be accessible to everyone, everywhere,
             regardless of income or access to a gym. With hundreds of
             professional workouts, healthy recipes and informative articles, as

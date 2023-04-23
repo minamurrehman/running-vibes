@@ -4,14 +4,20 @@ import Image from 'next/image'
 const DualImage = (props) => {
   return (
     <div className='customContainer my-12'>
-      <div>{props.children}</div>
+        {
+            props.direction === 'ltr' && (
+                <div className={'content'}>{props.children}</div>
+            )
+        }
 
       <div className='imageContainer'>
-        <Image src={props.imageA} alt='Image' className='firstImage' />
-        <Image src={props.imageB} alt='Image' className='secondImage' />
-        <div className='firstBlock'></div>
-        <div className='secondBlock'></div>
+        <Image src={props.image} alt={'Card Image'} />
       </div>
+        {
+            props.direction === 'rtl' && (
+                <div className={'content'}>{props.children}</div>
+            )
+        }
     </div>
   )
 }

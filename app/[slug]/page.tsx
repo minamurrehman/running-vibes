@@ -42,12 +42,12 @@ export default async function NewsInfo ({params}:any){
                 </div>
             </div>
             <div className='max-w-[1440px] mx-auto px-4'>
-                <div className='mt-16 flex justify-between'>
+                <div className='mt-16 flex flex-col md:flex-row gap-6 justify-between'>
                     <div className='flex gap-4'>
                         <FaFacebook size={24} className='text-pink-700'/>
                         <FaTwitter size={24} className='text-pink-700'/>
                     </div>
-                    <div className='flex gap-4'>
+                    <div className='flex flex-col md:flex-row gap-4'>
 
                         <div>
                             <p className='font-semibold text-text'>Published At</p>
