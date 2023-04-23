@@ -1,5 +1,4 @@
 import "@/styles/main.scss"
-import Newsletter from "@/components/Newsletter";
 
 type PropTypes = {
     title: string,

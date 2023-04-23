@@ -68,7 +68,7 @@ export default async function NewsInfo ({params}:any){
                     {data && data[0]?.title}
                 </h1>
 
-                {/*<ShowText content={data && data[0]?.content}/>*/}
+                <ShowText content={data && data[0]?.content}/>
             </div>
             <Newsletter/>
         </div>

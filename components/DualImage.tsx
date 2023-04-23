@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import '@/styles/main.scss'
+
 // @ts-ignore
 const DualImage = (props) => {
   return (
