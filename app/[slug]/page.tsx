@@ -67,8 +67,8 @@ export default async function NewsInfo ({params}:any){
                 <h1 className='text-2xl md:text-4xl font-bold my-8 text-heading'>
                     {data && data[0]?.title}
                 </h1>
-                {/*@ts-ignore*/}
-                <ShowText content={data && data[0]?.content}/>
+
+                {/*<ShowText content={data && data[0]?.content}/>*/}
             </div>
             <Newsletter/>
         </div>

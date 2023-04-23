@@ -3,7 +3,6 @@ import {EditorState, convertToRaw} from 'draft-js'
 import { useEffect, useState} from 'react'
 import draftToHtml from 'draftjs-to-html';
 import dynamic from "next/dynamic";
-// import {Editor} from 'react-draft-wysiwyg'
 const Editor = dynamic(()=>import('react-draft-wysiwyg').then((mod)=>mod.Editor),{
     loading: ()=><p>Loading....</p>,
     ssr: false
@@ -23,7 +22,6 @@ export default function Write(){
     )
 
     const [banner, setBanner] = useState(null)
-    const [loading, setLoading] = useState(true)
     const [title, setTitle] = useState('')
     const [slug, setSlug] = useState('')
     const [shortDesc, setShortDesc] = useState('')
@@ -31,12 +29,11 @@ export default function Write(){
     useEffect(() => {
 
         (async function () {
-            setLoading(true)
+
             const user = await supabase.auth.getUser()
             if (!user.data.user) {
                 router.replace('/login')
             }
-            else{setLoading(false)}
         })()
     }, [router])
 

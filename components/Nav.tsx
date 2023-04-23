@@ -93,7 +93,7 @@ const Nav =  () => {
                         {
                             currentUser?.id && (
                                 <Link
-                                    href='/write'
+                                    href='/writeBlog'
                                     className={`${pathname==='/writeBlog'?'text-primary font-semibold':'text-text' +
                                         ' font-[400]'} `}>
                                     Write Article
