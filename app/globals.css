@@ -8,18 +8,27 @@ img{
 
 .customContainer{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     align-items: center;
-    justify-items: center;
     row-gap: 20px;
+    max-width: 1440px;
+    margin: 50px auto;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 1150px) {
+    .customContainer {
+        grid-template-columns: 1fr 1.5fr;
+    }
 }
 
 .content{
-    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .imageContainer{
     width: 70%;
+    justify-self: end;
 }
 
 @media screen and (max-width: 920px) {
@@ -27,10 +36,13 @@ img{
         grid-template-columns: 1fr;
         width: 90%;
         padding: 10px;
+        justify-items: center;
+        justify-content: center;
     }
 
     .imageContainer{
         width: 80%;
+        justify-self: center;
     }
 }
 @media screen and (max-width: 620px) {

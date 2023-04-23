@@ -1,8 +1,7 @@
 import TopCard from "@/components/TopCard";
 import DualImage from "@/components/DualImage";
 
-import Coaching1 from "@/app/assets/coaching1.png"
-import Coaching2 from "@/app/assets/coaching2.png"
+import Coaching from "@/app/assets/img_4.png"
 import Newsletter from "@/components/Newsletter";
 const Home = () =>{
     const info = [
@@ -39,11 +38,11 @@ const Home = () =>{
                 desc="We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym."
             />
 
-                <DualImage imageA={Coaching2} imageB={Coaching1} className={'mt-16'}>
-                    <h1 className="text-[40px] font-[600] max-w-[400px]">
+                <DualImage image={Coaching} direction='ltr' className={'mt-16'}>
+                    <h1 className="text-[30px] lg:text-[40px] font-[600] max-w-[400px]">
                         How can I run longer at a higher speed?
                     </h1>
-                    <p className="font-normal text-text max-w-[500px] mt-3">
+                    <p className="font-normal text-text lg:max-w-[500px] mt-3">
                         It is a question that many runners ask themselves, the answer to this
                         is: INTERVAL TRAINING. Pay attention never start this without having a
                         good basis, starting immediately with interval without doing some

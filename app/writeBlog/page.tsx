@@ -98,7 +98,7 @@ export default function Write(){
         loading ? <div>Loading....</div> :
             <form
                 onSubmit={(e) => handleSubmit(e)}
-                className='max-w-[1440px] mx-auto my-4 flex flex-col gap-4'
+                className='max-w-[1440px] mx-auto my-4 flex flex-col gap-4 px-4'
             >
                 <div className=''>
                     <label htmlFor='title' className='text-xl'>
