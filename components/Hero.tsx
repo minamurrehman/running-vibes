@@ -45,7 +45,7 @@ const Hero = ({social}:{social:Social[]}) => {
             className='text-xl text-white bg-primary hover:bg-primary-hover rounded-full px-7 whitespace-nowrap py-2 max-w-min'
             href='/calendar'
           >
-            Get Started
+            AGENDA
           </Link>
           <div className='flex gap-4 mt-3'>
             {social.map((item) => (
