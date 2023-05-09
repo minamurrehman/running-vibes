@@ -3,6 +3,7 @@ import DualImage from '@/components/DualImage'
 
 import Purpose1 from '@/app/assets/img_3.png'
 import Link from 'next/link'
+import DualImage2 from "@/components/DualImage2";
 
 const Home = () => {
   return (
@@ -30,14 +31,16 @@ const Home = () => {
       </p>
     </DualImage>
     <div className='mt-16'>
-      <DualImage image={Purpose1} direction='rtl'>
-        <p className='flex flex-col gap-4 font-normal text-text max-w-[500px] mt-3'>
-          If you have any tips or suggestions for improvement for the website,
-          feel free to send us these and we will do everything possible to
-          realize it. Keep in mind that this is a website without funding so
-          our options are unfortunately limited. ​ Do you have photos or
-          results that you would like to see on the website? Feel free to
-          email them to:
+      <DualImage2 image={Purpose1} direction='rtl'>
+        <div className='flex flex-col gap-4 font-normal text-text max-w-[500px] mt-3'>
+          <p>
+            If you have any tips or suggestions for improvement for the website,
+            feel free to send us these and we will do everything possible to
+            realize it. Keep in mind that this is a website without funding so
+            our options are unfortunately limited. ​ Do you have photos or
+            results that you would like to see on the website? Feel free to
+            email them to:
+          </p>
           <Link
               className='block text-primary'
               href='mailto:runningvibes.info@gmail.com'
@@ -48,8 +51,8 @@ const Home = () => {
           Enjoy Running!
           <br />
           <p>Running Vibes Team TT</p>
-        </p>
-      </DualImage>
+        </div>
+      </DualImage2>
   </div>
 
       </div>

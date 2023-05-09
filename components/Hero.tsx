@@ -8,36 +8,21 @@ import {
   FaTwitter,
   FaGooglePlus,
   FaYoutube,
-  FaPinterest,
+  FaPinterest, FaLinkedin
 } from 'react-icons/fa'
+interface Social {
+  icon:string;
+  url: string;
+}
+const Hero = ({social}:{social:Social[]}) => {
 
-const Hero = () => {
-  const social = [
-    {
-      icons: FaFacebook,
-      url: 'https://facebook.com',
-    },
-    {
-      icons: FaInstagram,
-      url: 'https://instagram.com',
-    },
-    {
-      icons: FaTwitter,
-      url: 'https://twitter.com',
-    },
-    {
-      icons: FaGooglePlus,
-      url: 'https://googleplus.com',
-    },
-    {
-      icons: FaYoutube,
-      url: 'https://youtube.com',
-    },
-    {
-      icons: FaPinterest,
-      url: 'https://pinterest.com',
-    },
-  ]
+  const ico = social.map(i=>({
+    icon: i.icon.replaceAll('"',''),
+
+  }))
+  console.log(ico)
+
+  const socialIcons = ['facebook','instagram','linkedin','twitter','googleplus','youtube', 'pinterest']
   return (
     <div className='bg-primary-bg py-24 px-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 justify-between gap-4 max-w-[1440px] mx-auto items-center'>
@@ -58,14 +43,23 @@ const Hero = () => {
           </p>
           <Link
             className='text-xl text-white bg-primary hover:bg-primary-hover rounded-full px-7 whitespace-nowrap py-2 max-w-min'
-            href='/'
+            href='/calendar'
           >
             Get Started
           </Link>
           <div className='flex gap-4 mt-3'>
             {social.map((item) => (
-              <Link href={item.url}>
-                <item.icons className='text-primary text-2xl' />
+
+              <Link key={item.url} href={item.url}>
+                {
+                  item.icon === 'facebook'.toLowerCase()? <FaFacebook className='text-primary text-2xl'  />:
+                      item.icon === 'twitter'.toLowerCase()? <FaTwitter className='text-primary text-2xl'  />:
+                          item.icon === 'linkedin'.toLowerCase()? <FaLinkedin className='text-primary text-2xl'  />:
+                      item.icon === 'instagram'.toLowerCase()? <FaInstagram className='text-primary text-2xl'  />:
+                      item.icon === 'googleplus'.toLowerCase()? <FaGooglePlus className='text-primary text-2xl'  />:
+                      item.icon === 'pinterest'.toLowerCase()? <FaPinterest className='text-primary text-2xl'  />:
+                      item.icon === 'youtube'.toLowerCase()? <FaYoutube className='text-primary text-2xl' />:''
+                }
               </Link>
             ))}
           </div>

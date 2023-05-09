@@ -1,5 +1,21 @@
+'use client'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
+import {useState} from "react";
+
+
 const Newsletter = () =>{
+    const [email,setEmail] = useState('')
+
+    const handleSubmit = async () =>{
+        const res = await fetch('/api/newsletter',{
+            method: 'POST',
+            body: JSON.stringify({
+                email: email
+            })
+        }).then(res=>res.json())
+
+        console.log(res)
+    }
     return(
         <div className="px-2">
             <div
@@ -19,8 +35,10 @@ const Newsletter = () =>{
                         placeholder="Enter your email"
                         className="bg-primary-hover h-6 px-2 w-full placeholder:text-white/80 outline-none border-none text-white/80"
                         type="email"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
                     />
-                    <button className="px-6 py-2 bg-white rounded-full text-primary font-bold">
+                    <button onClick={handleSubmit} className="px-6 py-2 bg-white rounded-full text-primary font-bold">
                         Submit
                     </button>
                 </div>

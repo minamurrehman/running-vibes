@@ -1,18 +1,16 @@
 import Image from 'next/image'
 import '@/styles/main.scss'
 // @ts-ignore
-const DualImage = (props) => {
+const DualImage2 = (props) => {
   return (
-    <div className='customContainer my-12'>
-      <div className='imageContainer'>
-        <Image src={props.imageA} alt='Image' className='firstImage' />
-        <Image src={props.imageB} alt='Image' className='secondImage' />
-        <div className='firstBlock'></div>
-        <div className='secondBlock'></div>
+      <div className='customContainer2 my-12'>
+          <div className='imageContainer2'>
+              <Image src={props.image} alt={'Card Image'} />
+          </div>
+          <div className={'content2'}>{props.children}</div>
+
       </div>
-      <div>{props.children}</div>
-    </div>
   )
 }
 
-export default DualImage
+export default DualImage2

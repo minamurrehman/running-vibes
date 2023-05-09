@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+
 type PropsType = {
     title: string,
     image: string,
@@ -8,15 +9,18 @@ type PropsType = {
     url: string
 }
 const NewsCard = (props:PropsType) =>{
+
+    
     return(
         <div className="flex gap-6 flex-col sm:flex-row items-center">
-            <Image src={props.image} className="rounded-lg w-96 h-64 overflow-hidden md:w-auto md:h-auto" width={384} height={256} alt={props.title} />
+            <Image src={props.image} className="rounded-lg w-6 h-4 overflow-hidden md:w-auto md:h-auto" width={200} height={200} alt={props.title} />
             <div className="flex flex-col gap-4 max-w-[380px] md:max-w-full lg:w-auto">
                 <h3 className="font-bold text-2xl lg:text-3xl">
                     { props.title }
                 </h3>
                 <p className="text-text text-normal text-[16px]">{ props.desc }</p>
                 <Link
+                    prefetch={true}
                     className="flex gap-2 items-center text-primary text-[16px] font-[600]"
                 href={props.url}
                 >See More

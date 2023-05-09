@@ -55,3 +55,60 @@ img{
         width: 100%;
     }
 }
+
+
+/*DUAL2*/
+
+
+.customContainer2{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    row-gap: 20px;
+    max-width: 1440px;
+    margin: 50px auto;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 1150px) {
+    .customContainer2 {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+.content2{
+    width: 100%;
+}
+
+.imageContainer2{
+    width: 70%;
+    justify-self: start;
+}
+
+@media screen and (max-width: 920px) {
+    .customContainer2{
+        grid-template-columns: 1fr;
+        width: 90%;
+        padding: 10px;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .imageContainer2{
+        width: 80%;
+        justify-self: center;
+    }
+}
+@media screen and (max-width: 620px) {
+    .customContainer2{
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .imageContainer2{
+        width: 100%;
+    }
+}
+
+
+/*CALENDAR*/

@@ -3,8 +3,6 @@ import Link from "next/link";
 import {Bars3Icon, EllipsisVerticalIcon} from '@heroicons/react/24/outline'
 import {usePathname, useRouter} from "next/navigation";
 import {toast, ToastContainer} from "react-toastify";
-import {useSupabase} from "@/app/supabase-provider";
-import useUserStore from "@/app/store/store";
 import {useState} from "react";
 
 
@@ -38,31 +36,17 @@ const Nav = () => {
         {
             name: 'Tips',
             url: '/tips',
+        },,
+        {
+            name: 'Calendar',
+            url: '/calendar',
         },
     ]
     const pathname = usePathname()
-    const {supabase} = useSupabase()
-    const currentUser = useUserStore((state) => state.user)
-    const logoutUser = useUserStore((state) => state.logoutUser)
     const router = useRouter()
     const [open, setOpen] = useState(false)
 
-    const logout = async () => {
-        const {error} = await supabase.auth.signOut()
-        if (error) {
-            toast(error.message, {
-                type: 'error'
-            })
-        } else {
-            toast('Logout successfully', {
-                type: 'success'
-            })
-            logoutUser()
-            router.replace('/login')
-        }
-    }
-
-
+    // @ts-ignore
     // @ts-ignore
     return (
         <nav className="w-full bg-primary-bg">
@@ -72,7 +56,7 @@ const Nav = () => {
                 {/*left side*/}
                 <div className="flex w-full justify-between items-center gap-6 pt-6">
                     <div className={'flex gap-6 items-center'}>
-                        <Link href="/"> <img src="/logo.svg" alt="Logo"/></Link>
+                        <Link href="/"> <img src="/logo.png" alt="Logo" className='w-full h-12'/></Link>
 
                         <EllipsisVerticalIcon className="w-6 h-6 text-black cursor-pointer"/>
                     </div>
@@ -89,59 +73,22 @@ const Nav = () => {
                         {
                             links.map((link, index) => (
                                 <Link
-
                                     key={index}
+                                    // @ts-ignore
                                     href={link.url}
-                                    className={`whitespace-nowrap ${pathname === link.url ? 'text-primary font-semibold' : 'text-text' +
+                                    className={`whitespace-nowrap ${pathname === link?.url ? 'text-primary font-semibold' : 'text-text' +
                                         ' font-[400]'} `}
                                 >
-                                    {link.name}
+                                    {link?.name}
                                 </Link>
                             ))
-                        }
-                        {
-                            currentUser?.id && (
-                                <Link
-                                    href='/writeBlog'
-                                    className={`whitespace-nowrap ${pathname === '/writeBlog' ? 'text-primary' +
-                                        ' font-semibold' : 'text-text' +
-                                        ' font-[400]'} `}
-
-                                >
-                                    Write Article
-                                </Link>
-                            )
                         }
 
                     </div>
 
                     <div className="gap-12 items-center sm:flex">
                         <Link href="/lang" className="ml-4 xl:ml-6  text-primary font-[600]"
-                              >DU/ENG</Link
-                        >
-                        <div className='mt-6 lg:mt-0'>
-
-                            {
-
-                                currentUser?.id ? (
-                                        <button
-                                            onClick={()=>logout()}
-                                            className={`${pathname === '/login' ? 'bg-white font-[700] text-primary' : 'bg-primary' +
-                                                ' text-white'}  py-2 px-8 rounded-full`}
-                                        >Logout</button
-                                        >
-                                    ) :
-                                    (
-                                        <Link
-                                            href="/login"
-                                            className={`${pathname === '/login' ? 'bg-white font-[700] text-primary' : 'bg-primary' +
-                                                ' text-white'}  py-2 px-8 rounded-full`}
-                                            >Login</Link
-                                        >
-                                    )
-                            }
-
-                        </div>
+                              > DU/ENG </Link>
                     </div>
 
                 </div>

@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require("path");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -6,11 +6,11 @@ const nextConfig = {
   },
   reactStrictMode: false,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ['picsum.photos','res.cloudinary.com'],
+    domains: ["picsum.photos", "res.cloudinary.com", "cdn.sanity.io"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

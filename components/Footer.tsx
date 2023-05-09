@@ -7,9 +7,15 @@ import Twitter from '@/app/assets/twitter.svg'
 import Google from '@/app/assets/googleplus.svg'
 import Youtube from '@/app/assets/youtube.svg'
 import Pinterest from '@/app/assets/pinterest.svg'
+import {FaFacebook, FaGooglePlus, FaInstagram, FaLinkedin, FaPinterest, FaTwitter, FaYoutube} from "react-icons/fa";
 
 
-const Footer = () => {
+interface Social {
+    icon:string;
+    url: string;
+}
+
+const Footer = ({social}:{social:Social[]}) => {
 
     const links = [
         {
@@ -18,53 +24,22 @@ const Footer = () => {
         },
         {
             name: 'Tools',
-            url: '/',
+            url: '/tools',
         },
         {
             name: 'About us',
-            url: '/',
+            url: '/about-us',
         },
         {
             name: 'Coaching',
-            url: '/',
+            url: '/coaching',
         },
         {
             name: 'Tips',
-            url: '/',
+            url: '/tips',
         },
     ]
-    const logos = [
-        {
-            name: 'Facebook',
-            url: '',
-            image: Facebook,
-        },
-        {
-            name: 'Instagram',
-            url: '',
-            image: Instagram
-        },
-        {
-            name: 'Twitter',
-            url: '',
-            image: Twitter,
-        },
-        {
-            name: 'Google Plus',
-            url: '',
-            image: Google,
-        },
-        {
-            name: 'Youtube',
-            url: '',
-            image: Youtube,
-        },
-        {
-            name: 'Pinterest',
-            url: '',
-            image: Pinterest,
-        },
-    ]
+
     return (
         <footer className="py-12 px-2">
             <div
@@ -83,15 +58,24 @@ const Footer = () => {
             <div
                 className="flex flex-col gap-4 md:gap-0 md:flex-row justify-between items-center max-w-[1440px] mx-auto"
             >
-                <img src="/logo.svg" alt="Logo"/>
+               <Link href={'/'}>
+                   <img src="/logo.png" alt="Logo" className='w-48 h-12'/>
+               </Link>
                 <div className="flex gap-6">
-                    {
-                        logos.map((logo, index) => (
-                            <div key={index} className='cursor-pointer'>
-                                <Image src={logo.image} alt={logo.name} width={20} height={20} className="w-8"/>
-                            </div>
-                        ))
-                    }
+                    {social.map((item) => (
+
+                        <Link key={item.url} href={item.url}>
+                            {
+                                item.icon === 'facebook'.toLowerCase()? <FaFacebook className='text-primary text-2xl'  />:
+                                    item.icon === 'twitter'.toLowerCase()? <FaTwitter className='text-primary text-2xl'  />:
+                                        item.icon === 'linkedin'.toLowerCase()? <FaLinkedin className='text-primary text-2xl'  />:
+                                            item.icon === 'instagram'.toLowerCase()? <FaInstagram className='text-primary text-2xl'  />:
+                                                item.icon === 'googleplus'.toLowerCase()? <FaGooglePlus className='text-primary text-2xl'  />:
+                                                    item.icon === 'pinterest'.toLowerCase()? <FaPinterest className='text-primary text-2xl'  />:
+                                                        item.icon === 'youtube'.toLowerCase()? <FaYoutube className='text-primary text-2xl' />:''
+                            }
+                        </Link>
+                    ))}
                 </div>
             </div>
             <p className="text-[#9A9EA6] text-center py-4">

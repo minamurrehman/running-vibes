@@ -1,6 +1,7 @@
 import TopCard from "@/components/TopCard";
 import Newsletter from "@/components/Newsletter";
 import Form from "@/components/Form";
+import CaloriesForm from "@/components/Form/CaloriesForm";
 
 const Home = () =>{
 
@@ -23,12 +24,12 @@ const Home = () =>{
                 {/*form2 here */}
                 <div className="my-16">
                     <h2 className="text-4xl font-bold text-center text-heading">
-                        Calculate your consumed calories here
+                        Calculate Basal Metabolic Rate (BMR)
                     </h2>
                     <p className="text-2xl font-semibold text-center text-heading my-8">
-                        Snelheid voor afstand en tijd
+                        Bereken basaal metabolisme (BMR)
                     </p>
-                    <Form/>
+                    <CaloriesForm/>
                 </div>
             </div>
             <Newsletter/>

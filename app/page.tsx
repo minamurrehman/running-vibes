@@ -5,73 +5,50 @@ import Link from 'next/link'
 import NewsCard from '@/components/NewsCard'
 import Newsletter from '@/components/Newsletter'
 import Hero from '@/components/Hero'
+import {clientFetch} from '@/utils/client'
+import {groq} from 'next-sanity'
+import GoogleAd from "@/app/GoogleAd";
 
-export default function Home() {
-  const news = [
-    {
-      title: 'Schedule for the half marathon',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'schedule-for-the-half-marathon',
-    },
-    {
-      title: 'Updated results page',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'updated-result-page',
-    },
-    {
-      title: 'Schedule fast 10 kilometers',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'schedule-fast-10-km',
-    },
-    {
-      title: 'Running schedule 5 kilometers',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'running-schedule-5-km',
-    },
-    {
-      title: 'Running apps',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'running-apps',
-    },
-    {
-      title: 'Power food for runners: apple spelled cake',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'power-food-for-runners',
-    },
-    {
-      title: 'Houffaraid 2018',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'houffaradid-2018',
-    },
-    {
-      title: 'Favorite walking distance',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'favorite-walking-distance',
-    },
-    {
-      title: 'Houffaraid 2018',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'houffaradid-2018-2',
-    },
-    {
-      title: 'Review: Kalenji Run Light',
-      desc: 'We believe fitness should be accessible to everyone, everywhere.',
-      image: 'https://picsum.photos/200/200',
-      slug: 'review-kalenji-run-light',
-    },
-  ]
+interface NewsType {
+  content: string;
+  title: string;
+  shortDescription: string;
+  banner: string;
+  slug: {
+    current: string
+  };
+}
+
+interface Social {
+  icon:string;
+  url: string;
+}
+
+
+async function fetchArticles() {
+  const query = groq`
+      *[_type == 'articles']{
+         ...,
+          "banner": banner.asset->url
+      }
+      `
+  return await clientFetch(query);
+}
+async function fetchSocial() {
+  const query = groq`
+      *[_type=='social']
+      `
+  return await clientFetch(query);
+}
+
+export default async function Home() {
+  const newsData:Promise<NewsType[]> = fetchArticles();
+  const socialData:Promise<Social[]> = fetchSocial();
+
+  const [news,social] = await Promise.all([newsData,socialData])
   return (
     <>
-      <Hero />
+      <Hero social={social}/>
       <main className='max-w-[1440px] mx-auto p-3'>
         <DualImage image={Exercise} direction='ltr'>
           <h1 className='text-[30px] lg:text-[40px] font-[600] md:max-w-[400px]'>
@@ -116,13 +93,13 @@ export default function Home() {
             Latest news items
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 pt-8'>
-            {news.map((newsItem, index) => (
+            {news?.map((newsItem, index) => (
               <NewsCard
                 key={index}
                 title={newsItem.title}
-                desc={newsItem.desc}
-                image={newsItem.image}
-                url={newsItem.slug}
+                desc={newsItem.shortDescription}
+                image={newsItem.banner}
+                url={newsItem.slug.current}
               />
             ))}
           </div>
@@ -133,6 +110,7 @@ export default function Home() {
             Load More
           </Link>
         </div>
+        <GoogleAd/>
         <Newsletter />
       </main>
     </>
