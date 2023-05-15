@@ -24,6 +24,8 @@ interface Social {
   url: string;
 }
 
+export const revalidate = 300;
+
 
 async function fetchArticles() {
   const query = groq`

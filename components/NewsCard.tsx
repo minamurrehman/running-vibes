@@ -13,7 +13,7 @@ const NewsCard = (props:PropsType) =>{
     
     return(
         <div className="flex gap-6 flex-col sm:flex-row items-center">
-            <Image src={props.image} className="rounded-lg w-6 h-4 overflow-hidden md:w-auto md:h-auto" width={200} height={200} alt={props.title} />
+            <Image src={props.image} className="rounded-lg block w-96 h-56 overflow-hidden md:w-auto md:h-auto" width={200} height={200} alt={props.title} />
             <div className="flex flex-col gap-4 max-w-[380px] md:max-w-full lg:w-auto">
                 <h3 className="font-bold text-2xl lg:text-3xl">
                     { props.title }

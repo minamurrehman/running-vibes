@@ -26,7 +26,7 @@ interface NewsType {
 
 
 
-// export const revalidate = 30;
+export const revalidate = 300;
 
 const components: PortableTextComponents = {
     list:{

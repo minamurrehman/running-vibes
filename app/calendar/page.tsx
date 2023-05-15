@@ -12,7 +12,7 @@ import {AiOutlineClockCircle} from "react-icons/ai";
 
 const Calendar = () => {
     registerLicense('MTk2OTcyN0AzMjMxMmUzMjJlMzNmT1JvWVB2K0ZNUHREekluVGRtc1pQTFFab2F1K3kvRndodThvVGk1cE4wPQ==;Mgo+DSMBaFt+QHJqVk1lQ1BBaV1CX2BZf1l2TWlcf04QCV5EYF5SRHNfSlxgSXZWdkZhUX8=;Mgo+DSMBMAY9C3t2VFhiQlJPc0BDWHxLflF1VWJTf1Z6cVVWACFaRnZdQV1mSXZSdUVrXH9ddHNV;Mgo+DSMBPh8sVXJ1S0R+X1pBaV5HQmFJfFBmRGlZd1R1dEUmHVdTRHRcQlhjQX9Qdk1mWXtdc3I=;MTk2OTczMUAzMjMxMmUzMjJlMzNZeFAyRHA5UFZyQXk3elZ0SHhVSThkOFk5cjRpL1lvdkJLNS9NTWhQNklzPQ==;NRAiBiAaIQQuGjN/V0d+Xk9HfVpdXGZWfFN0RnNYdV54flBGcDwsT3RfQF5jTH5bd0ZjUXpedXRUQA==;ORg4AjUWIQA/Gnt2VFhiQlJPc0BDWHxLflF1VWJTf1Z6cVVWACFaRnZdQV1mSXZSdUVrXH9bcXNT;MTk2OTczNEAzMjMxMmUzMjJlMzNXaDRxcWlBMGNHOEhyUisvT0U3WTVMc0hBY2hRUm9wVlIrS3gzWFBqdE9VPQ==;MTk2OTczNUAzMjMxMmUzMjJlMzNLR3lJcEM4MTY2ZmVwWHpNd1RXbk9pVG5saEh2S2phTnlSYk9RQktqdzlNPQ==;MTk2OTczNkAzMjMxMmUzMjJlMzNDS3FUdlJISnR3bzV5bEd2Z1hnZ2N6SS9zQUgvVjAyaURnRDhIRUQ3ek5VPQ==;MTk2OTczN0AzMjMxMmUzMjJlMzNKcENiWFR1UzBBTW5OWWw4b1pNZUwxRXV0aFF5SnYvYUkxUUQvLzBzdDc4PQ==;MTk2OTczOEAzMjMxMmUzMjJlMzNmT1JvWVB2K0ZNUHREekluVGRtc1pQTFFab2F1K3kvRndodThvVGk1cE4wPQ==');
-    let calendarId: string = '43303a2afa13a6c8cb7e580086eaa25c3b8a2d59c34fc7b13a6de6258eea549c@group.calendar.google.com';
+    let calendarId: string = 'yves.bracke1@telenet.be';
     let publicKey: string = 'AIzaSyAZPjqFTAt3SshelRPTpThQKvG1jOyb6YI';
     let dataManger: DataManager = new DataManager({
         url: 'https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?key=' + publicKey,
