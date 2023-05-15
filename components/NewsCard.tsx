@@ -12,9 +12,9 @@ const NewsCard = (props:PropsType) =>{
 
     
     return(
-        <div className="flex gap-6 flex-col sm:flex-row items-center">
-            <Image src={props.image} className="rounded-lg block w-96 h-56 overflow-hidden md:w-auto md:h-auto" width={200} height={200} alt={props.title} />
-            <div className="flex flex-col gap-4 max-w-[380px] md:max-w-full lg:w-auto">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 items-center">
+            <Image src={props.image} className="rounded-lg block w-96 h-56 overflow-hidden" width={200} height={100} alt={props.title} />
+            <div className="flex flex-col gap-4 max-w-[300px]">
                 <h3 className="font-bold text-2xl lg:text-3xl">
                     { props.title }
                 </h3>
