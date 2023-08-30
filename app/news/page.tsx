@@ -46,7 +46,7 @@ async function Home() {
           "We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym."
         }
       />
-        <ShowNews news={news} categories={categories}/>
+        <ShowNews news={news} categories={categories} showLoad={false}/>
       <Newsletter />
     </main>
   );

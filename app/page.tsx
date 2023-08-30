@@ -106,7 +106,7 @@ export default async function Home() {
             ))}
           </div>
           <Link
-            href='/more'
+            href='/news'
             className='block mx-auto bg-primary w-max px-6 py-2 my-12 hover:bg-primary-hover text-white rounded-full'
           >
             Load More

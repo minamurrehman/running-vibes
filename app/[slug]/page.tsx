@@ -103,6 +103,7 @@ async function fetchArticles(slug:any) {
 
 export default async function NewsInfo ({params}:any){
  const news = await fetchArticles(params?.slug);
+ 
 
     return (
         <div>
@@ -148,7 +149,7 @@ export default async function NewsInfo ({params}:any){
                         </div>
                         <div>
                             <p className='font-semibold text-text'>Updated At</p>
-                            <p className='text-text'>{new Date(news && news?.publishedAt).toDateString()}</p>
+                            <p className='text-text'>{new Date(news && news?._createdAt).toDateString()}</p>
                         </div>
                         <div>
                             <p className='font-semibold text-text'>Source / Author</p>

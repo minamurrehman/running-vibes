@@ -4,7 +4,7 @@ import {urlFor} from "@/utils/url";
 import Link from "next/link";
 import {useState} from "react";
 
-const ShowNews = ({categories,news}) =>{
+const ShowNews = ({categories,news,showLoad=true}) =>{
     const [selected,setSelected] = useState(categories[0].title)
     const filteredNews = news.filter(news => news?.categories?.some(category => category.title.toLowerCase() === selected.toLowerCase()));
 
@@ -40,12 +40,14 @@ const ShowNews = ({categories,news}) =>{
                 <p>No news found</p>
             )}
         </div>
-        <Link
+        {showLoad && (
+            <Link
             href="/more"
             className="block mx-auto bg-primary w-max px-6 py-2 my-12 hover:bg-primary-hover text-white rounded-full"
         >
             Load More
         </Link>
+        )}
     </div>
     </>
     )

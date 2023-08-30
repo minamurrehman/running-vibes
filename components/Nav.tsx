@@ -22,10 +22,6 @@ const Nav = () => {
             url: '/tools',
         },
         {
-            name: 'About us',
-            url: '/about-us',
-        },
-        {
             name: 'Coaching',
             url: '/coaching',
         },
@@ -36,10 +32,14 @@ const Nav = () => {
         {
             name: 'Tips',
             url: '/tips',
-        },,
+        },
         {
             name: 'Calendar',
             url: '/calendar',
+        },
+        {
+            name: 'About us',
+            url: '/about-us',
         },
     ]
     const pathname = usePathname()
@@ -84,11 +84,6 @@ const Nav = () => {
                             ))
                         }
 
-                    </div>
-
-                    <div className="gap-12 items-center sm:flex">
-                        <Link href="/lang" className="ml-4 xl:ml-6  text-primary font-[600]"
-                              > DU/ENG </Link>
                     </div>
 
                 </div>
