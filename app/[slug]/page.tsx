@@ -164,7 +164,6 @@ export default async function NewsInfo ({params}:any){
 
                 <PortableText value={news && news?.body} components={components}/>
             </div>
-            <GoogleAd/>
             <Newsletter/>
         </div>
     )
