@@ -112,7 +112,6 @@ export default async function Home() {
             Load More
           </Link>
         </div>
-        <GoogleAd/>
         <Newsletter />
       </main>
     </>
